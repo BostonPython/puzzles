@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Puzzle 1: A Hot Date With itertools</title>
+<body>
+<h1>Puzzle 1: A Hot Date With itertools</h1>
+
+<p>[inspired by <a href="http://www.dgp.toronto.edu/~flaps/progprobs.html">http://www.dgp.toronto.edu/~flaps/progprobs.html</a>]</p>
+
+<p>Consider these base-10 digits: 123456789. If you insert spaces between them, you get various sequences of numbers:</p>
+
+<pre>
+1 2 3 4 5 6 7 8 9
+12 3 4 5 67 8 9
+1 2 34 5 6 7 89
+12 34 56 78 9
+1 23456 78 9
+12345 6789
+etc.
+</pre>
+
+<p>1) Write a program that generates all possible combinations of those digits. </p>
+
+<p>How many are there?</p>
+
+<p>Now let's insert a maximum of 8 addition or subtraction operators between the numbers, like this:</p>
+
+<pre>
+1+2+3+4+5+6+7-8+9
+12-3+4+5-67-8+9
+1+2+34+5-6-7-89
+12-34+56+78+9
+1+23456-78-9
+12345+6789
+etc.
+</pre>
+
+<p>Notice that those arithmetic expressions equate to different values:</p>
+
+<pre>
+1+2+3+4+5+6+7-8+9 = 29
+12-3+4+5-67-8+9 = -48
+1+2+34+5-6-7-89 = -60
+12-34+56+78+9 = 121
+1+23456-78-9 = 23370
+12345+6789 = 19134
+etc.
+</pre>
+
+<p>2) Write a program that generates all possible expressions in this way.</p>
+
+<p>How many sum to 100?</p>
+
+<p>3) Write a program that finds all such expressions for any sum.</p>
+
+<p>Which sum is the most popular, i.e. has the most expressions?</p>
+
+<p>4) Bonus:  We can haz pretty data viz?</p>
+
+<p>Like how about a histogram of the number of expressions with sums from -23456788 to 123456789. (A log scale might help. Maybe binning, too.)</p>

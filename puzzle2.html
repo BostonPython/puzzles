@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Puzzle 2: String Theory and Phone Numbers</title>
+<body>
+<h1>Puzzle 2</h1>
+
+<h2>1. String Theory</h2>
+
+<p>Damn! You just put a crucial document through your paper shredder. It was a
+passage from Moby Dick that you wanted to share with a friend in medical
+school. You managed to salvage some bits of paper from the shredder with these
+words (in random order):</p>
+
+<pre>
+into his same should through had like with out which a down they great and were so not the
+</pre>
+
+<p>Well, these words should be enough to find the passage, which was definitely
+less than 500 words long and ended with a hilarious suggestion for how to
+improve medical education.</p>
+
+<p>This might be useful: http://www.gutenberg.org/cache/epub/2701/pg2701.txt</p>
+
+<p>Now do the reverse. What is the optimal moby set for the first 500 words of
+the book? (I mean the passage that begins with 'Call me Ishmael.') </p>
+
+<p>A moby set is a set of words (ignoring capitalization and punctuation) that
+cooccur in a passage and cooccur in no other passage of equal length in a text,
+and hence those words are a unique marker for that passage. The optimal moby
+set for a passage is the set with the lowest moby score: the sum of the
+frequencies of the words in a moby set. So the optimal moby set is the set with
+the smallest number of high-frequency words that uniquely define a passage. The
+smaller the moby score, the better. For example:</p>
+
+<pre>
+{'call','me','ishmael'} 
+</pre>
+
+<p>This is a valid moby set for the first 500 words of the book, because those
+3 words only cooccur in the first 500 words of the book. But it is far from
+optimal because the sum of their frequencies is relatively large, mainly
+because 'ishmael' occurs only twice in the entire book. You can express their
+frequencies by the inverse of the count of those words in the book. The moby
+score is the sum:</p>
+
+<pre>
+sum( {1.0/53, 1.0/339, 1.0/2} ) = 0.52 
+</pre>
+
+<p>The optimal moby score is much closer to zero.</p>
+
+<p>(Note that you must capture all sentences that correspond to the first 500
+words, i.e. one should not need to know that one is looking for a 500-word
+passage. Rather, the moby set should uniquely correspond to the sentences that
+fit within the first 500 words of the book.)</p>
+
+<p>And finally, to take your mind off white whales, consider this puzzle:</p>
+
+<p>Cross out nine letters from 'naisnienlgeltetweorrsd' such that a single word remains. (Don't get mad!)</p>
+
+
+<!--
+<h2>2. Card Entropy</h2>
+
+<p>You will need a friend for this challenge. </p>
+
+<p>I give you 5 random cards from my completely normal, randomly shuffled, full deck of 52 cards. You choose 4 of these cards and give them to your friend. After looking at those 4 cards, your friend tells me the identity of the 5th card (which she never saw). How did she do that?</p>
+
+* The first 2-person team to successfully perform this trick wins prize 2a.
+
+* Now write a program so that your computer can perform the trick with you. (Input is 4 cards; output is the identity of the unknown 5th card.) The first 2-person team to successfully demonstrate the trick using their computer wins prize 2b.
+
+* If n-1 is the miminum number of cards needed to uniquely encode one card from n randomly selected cards in a single deck, what is n for m multiple decks? Which is to say, how does n increase with m? Can you ever encode the unknown card with fewer than (n-1)*m cards? The first person to present a proof of the lower limit of (n|m) and demonstrate a program that does the trick for arbitrary m decks wins prize 2c.
+-->
+
+<h2>2. STAR-CROSSED</h2>
+
+<p>Long, long ago, people used to memorize phone numbers. To help people do
+this, telephone keypads included letters. Here is a typical encoding:</p>
+
+<pre>
+	 1	 2	 3
+		abc	def
+	
+	 4	 5	 6
+	ghi	jkl	mno
+
+	 7	 8	 9
+	pqrs	tuv	wxyz
+
+	 *	 0	 #
+		 +
+</pre>
+
+<p>Write a program that generates Boston vanity telephone numbers (1-617-XXX-XXXX), where XXX-XXXX encodes a person's name. </p>
+
+<p>For example, the vanity number for 'Adriana' would be 1-617-237-4262, which is 1-617-ADRIANA. </p>
+
+<p>But what to do with names longer or shorter than 7 letters? If a name is
+shorter, then the vanity number will begin with a padding of 7's. For example,
+the vanity number for 'Adam' would be 1-617-777-2326, which is 1-617-777-ADAM.
+If a name is longer than 7 letters, then the vanity number will drop all
+interior vowels starting from the end. For example, the vanity number for
+'Elizabeth' would be 1-617-354-9284 (for 1-617-ELIZBTH). And for crazy long
+names, you just take the first 4 letters and the last 3. For example,
+'Mahershalalhashbaz' (yes that's a real name) would be 1-617-624-3229 (for
+1-617-MAHEBAZ).</p>
+
+<p>Now notice that the zero encodes an addition symbol ('+'). Most people use
+it for calling foreign telephones, but hey... why not use it for mathematical
+vanity numbers? For example, the sum of the number values of a name can be
+converted into an arithmetic expression:</p>
+
+<pre>
+ADRIANA = {2,3,7,4,2,6,2}
+sum({2,3,7,4,2,6,2}) = 22
+</pre>
+
+<p>Of course, 22 is the solution to many arithmetic expressions that can be
+encoded as 7-digit telephone numbers:</p>
+
+<p>507-0406 (5+7+4+6), 802-0802 (8+2+8+2), 605-0406 (6+5+4+6), etc. </p>
+
+<p>To uniquely encode a name, mathematical vanity telephone numbers use the
+prettiest possible sequence: ascending order with the smallest numbers
+possible:</p>
+
+<pre>
+ADRIANA = 1-617-101-0505 (1+1+5+5)
+</pre>
+
+<p>For names shorter than 7 letters, you prepend a padding of zero's of course.
+And for names longer than 7, you drop letters in descending order of their
+keypad encoding value, with descending alphabetic rank and index position to
+break ties.</p>

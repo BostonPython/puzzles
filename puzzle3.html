@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Puzzle 3: Mini-Golf, Pi-Golf, and Hex Words</title>
+<body>
+<h1>Puzzle 3: Mini-Golf, Pi-Golf, and Hex Words</h1>
+
+<h2>1. Python Mini-Golf</h2>
+
+<p>This is a 9-hole game of Python mini-golf. The goal is to create a series of
+9 functions, each of which takes the output of the previous hole as the input.
+This is supposed to be useful for beginners, so it provides a tour of Python's
+built-in fuctions:  <a href="http://docs.python.org/2/library/functions.html">http://docs.python.org/2/library/functions.html</a></p>
+
+<pre>
+def hole0(your_name):
+    # your_name should be a string of at least 3 letters
+    # create a function that divides it into 3 strings of equal size (smallest parts first if not divisible by 3)
+    # hint: check out the built-in len() function
+    return your_name_parts
+
+def hole1(your_name_parts):
+    # this function takes as input the output of the hole0() function
+    # convert those 3 strings into 3 lists of their letters
+    # hint: check out the builtin list() function
+    return letters
+
+def hole2(letters):
+    # sort each of the 3 lists of letters alphabetically
+    # hint: check out sorted() function and also the list.sort() method, and learn what "sorting in place" means!
+    return sorted_letters
+
+def hole3(sorted_letters):
+    # convert each letter list into list of ASCII codes
+    # hint: ord()
+    return ASCII
+
+def hole4(ASCII):
+    # convert these ASCII integers into strings
+    # hint: str()
+    return ASCII_str
+
+def hole5(ASCII_str):
+    # join each ASCII_str as a single string
+    # hint:  look up the join() method
+    return joined_number_strings
+
+def hole6(joined_number_strings):
+    # add a decimal point to the beginning of each of the 3 strings
+    # hint:  check out the builtin string operations (like '+')
+    return point_stuff
+
+def hole7(point_stuff):
+    # now convert each into a float
+    # hint: float()
+    return float_stuff
+
+def hole8(float_stuff):
+    # and finally, convert into your Python Name Color
+    # multiply each of these 3 floats by 255 to form an RGB value
+    # hint: you will need the int() function
+    # show me your color to claim your candy!
+    # bonus points:  write code that actually outputs a squre of this color
+    return RGB
+</code>
+
+<h2>2. Python Pi-Golf</h2>
+
+<p>Mystry of mysteries, icon of geekdom... the irrational number pi.  Is it a
+secret code, a message from the universe?  Let's find out.</p>
+
+<p>Convert the digits of pi into uppercase ASCII letters.</p>
+
+<ul>
+<li>What is the first 3-letter English word in pi? (Hint:  The word 'OLD' appears at digit 1807, and it is not the first one.</li>
+<li>What is the first 4-letter word? (Hint: it's a weird part of a bird!)</li>
+<li>What is the first 5-letter word? (Hint: 'VIRUS' is at 3056055 and it's not the first.)</li>
+<li>6-letter word? (It is suuuuch a good word! Hint: Google would have chosen it if somehow they controlled the universe itself which they don't, do they?)</li>
+<li>7-letter word...?  This is an open question.  I have not found it yet!</li>
+</ul>
+
+<p>You can find millions of digits of pi online, but I also have txt files of
+pi up to a billion digits.</p>
+
+
+<h2>3. Hex Words</h2>
+
+<p>Find the English hex() words. You know, the strings of hex digits that
+appear to be English words.</p>
+
+<p>For example...</p>
+
+<ul>
+<li>The word 'bee' in hex is 3054 in decimal.</li>
+<li>The word 'face' in hex is 64206 in decimal.</li>
+<li>The word 'decade' in hex is 14600926 in decimal.</li>
+</ul>
+
+<p>Forget about the '0x' prefix.  That's computer stuff!
+<a href="http://stackoverflow.com/questions/2670639/why-are-hexadecimal-prefixed-as-0x">http://stackoverflow.com/questions/2670639/why-are-hexadecimal-prefixed-as-0x</a></p>
+
+<p>So, what is the largest hex word in English?  (hint:  You can eat some of them.)</p>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Puzzle 4: Card Trick Cipher</title>
+<body>
+<h1>Puzzle 4: Card Trick Cipher Solution</h1>
+
+<p>This is one of the possible solutions to the <a href="puzzle4.html">Alice
+    and Bob card trick</a>, devised by John Bohannon.</p>
+
+<p>Alice gets 5 random cards. The convenient thing about 5 cards is that at
+least 2 of the cards will have the same suit (since there are only 4 suits).
+She chooses 2 cards of the same suit and designates one of them as the Mystery
+Card and one of them as the Base Card. First she must figure out the difference
+between the cards' identities; the Mystery Card must be no more than 6 mod 13
+steps away from the Base Card.</p>
+
+<p>For example: Let's say that she has a 3-Clubs and a 7-Clubs. That one is
+easy. Counting up, it takes 4 steps to get from the 3-Clubs to the 7-Clubs. So
+the 3-Clubs will be the Base Card and the 7-Clubs will be the Mystery Card.</p>
+
+<p>Harder example: Let's say that she has a 3-Clubs and a 10-Clubs. It takes 7
+steps to get from 3 to 10, which is more than 6. But starting from the
+10-Clubs: 11-Clubs (also known as the Jack of Clubs), 12-Clubs, 13-Clubs,
+1-Clubs (remember, this is mod-13, like counting on a clock), 2-Clubs, 3-Clubs.
+That took exactly 6 steps. Perfect. So in this case, the Base Card is the
+10-Clubs and the Mystery Card is the 3-Clubs.</p>
+
+<p>Once Alice has chosen the Mystery Card, she must now order the remaining 4
+cards for Bob.</p>
+
+<p>The first (leftmost) card will be the Base Card. The next 3 cards encode the
+number that Bob will add to the Base Card to figure out the Mystery Card.</p>
+
+<p>To see how the encoding works, let's switch to Bob's perspective once Alice
+hands him the 4 ordered cards.</p>
+
+<p>Bob figures out the Mystery Card identity like this:</p>
+
+<ol>
+
+    <li>He knows that the suit of the Mystery Card is the same as the suit of
+    the Base Card. He's halfway to the solution already!</li>
+
+    <li>Now, figure out the relative rank of the 3 remaining cards (low,
+    middle, high). Aces = 1, and alphabetical rank of suit is tie-breaker, i.e.
+    the rank of (4-Clubs, 4-Hearts, 4-Spades) = (low, middle, high).</li>
+
+    <li>Now think of the cards as 1,2,3 rather than low,middle,high. (In
+    math-speak, convert the cards into a 3-digit base-3 number.) So for example
+    (13-Spades, 3-Diamonds, 8-Clubs) = (high,low,middle) = (3,1,2) = 312.</li>
+
+    <li>Now translate that 3-digit number to the number you need to add to the
+    base card to find the mystery card. The mapping is simply their ascending
+    rank in size:</li>
+
+<pre>
+1:  123
+2:  132
+3:  213
+4:  231
+5:  312
+6:  321
+</pre>
+
+</ol>
+
+<p>An easier way to think of it:  There are only 6 different numbers that you
+can make by permuting the digits 1, 2, and 3.  The smallest is 123, so that has
+a rank of 1. The largest is 321, rank of 6. And so forth.</p>
+
+<p>The order of the cards gives you one of these 6 numbers.  Now just add that
+number to the number of the Base Card (mod-13, and don't forget that Ace=1),
+and you've solved the identity of the Mystery Card.</p>
+
+<p><a href="puzzle4.html">Return to Python Card Tricks</a></p>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Puzzle 4: Python Card Tricks</title>
+<body>
+<h1>Puzzle 4: Python Card Tricks</h1>
+
+<p>One of the least-known reasons to learn Python is for performing card
+tricks.</p>
+
+<p>For example, Alice and Bob perform the following trick:</p>
+
+<p>You choose any 5 cards from a deck. (It is a normal 52-card deck and
+randomly shuffled.) You give the 5 cards to Alice. Alice chooses one of the 5
+cards and gives it back to you. (You hide it in your pocket.) Alice then shows
+the remaining 4 cards to Bob. Bob tells you what card is hidden in your
+pocket.</p>
+
+<p>How did Alice and Bob do that?</p>
+
+<p>1) Write a function called deck() that returns a randomly shuffled deck of
+52 cards as a list of tuples. Each tuple should have the card's number as an
+integer from 1 through 13 (where 11=Jack, 12=Queen, 13=King, 1=Ace) and a
+single-letter string for the card's suit (Clubs, Diamonds, Hearts, Spades) like
+this:</p>
+
+<pre>
+[ (3,'H'), (10,'S'), (13,'C'), (8,'D'), (1,'D'), (1,'S'), ... ]
+</pre>
+
+<p>2) Figure out how to perform Alice and Bob's trick, that is, create an
+enciphering system that uses the order of 4 cards to uniquely encode the
+identity of the unknown 5th card. (There is more than one way to do this.) If
+you are stuck coming up with a system, here's a 
+<a href='puzzle4_cipher.html'>solution</a>.</p>
+
+<p>3) Write a Bob function. The input is a list of 4 cards, and it returns the
+identity of the 5th card.</p>
+
+<p>4) Write an Alice function. The input is 5 randomly chosen cards from a
+deck. It chooses one of the 5 cards to be the mystery card and returns a list
+of the remaining 4 cards in the order that encodes the 5th.</p>
+
+<p>5) Now put it all together into a program that allows you to perform the
+card trick either with you playing Alice and the computer playing Bob, or vice
+versa.</p>
+
+<p>6) Bonus question: Can you figure out how to do the same trick, but without
+choosing which of the 5 cards is the mystery card?</p>

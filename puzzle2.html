@@ -24,18 +24,18 @@ improve medical education.</p>
 <p>This might be useful: http://www.gutenberg.org/cache/epub/2701/pg2701.txt</p>
 
 <p>Now do the reverse. What is the optimal moby set for the first 500 words of
-the book? (I mean the passage that begins with 'Call me Ishmael.') </p>
+the book? (I mean the passage that begins with 'Call me Ishmael.')</p>
 
 <p>A moby set is a set of words (ignoring capitalization and punctuation) that
-co-occur in a passage and co-occur in no other passage of equal length in a text,
-and hence those words are a unique marker for that passage. The optimal moby
-set for a passage is the set with the lowest moby score: the sum of the
+co-occur in a passage and co-occur in no other passage of equal length in a
+text, and hence those words are a unique marker for that passage. The optimal
+moby set for a passage is the set with the lowest moby score: the sum of the
 frequencies of the words in a moby set. So the optimal moby set is the set with
 the smallest number of high-frequency words that uniquely define a passage. The
 smaller the moby score, the better. For example:</p>
 
 <pre>
-{'call','me','ishmael'} 
+{'call','me','ishmael'}
 </pre>
 
 <p>This is a valid moby set for the first 500 words of the book, because those
@@ -46,7 +46,7 @@ frequencies by the inverse of the count of those words in the book. The moby
 score is the sum:</p>
 
 <pre>
-sum( {1.0/53, 1.0/339, 1.0/2} ) = 0.52 
+sum( {1.0/53, 1.0/339, 1.0/2} ) = 0.52
 </pre>
 
 <p>The optimal moby score is much closer to zero.</p>
@@ -60,19 +60,18 @@ fit within the first 500 words of the book.)</p>
 
 <p>Cross out nine letters from 'naisnienlgeltetweorrsd' such that a single word remains. (Don't get mad!)</p>
 
-
 <!--
 <h2>2. Card Entropy</h2>
 
 <p>You will need a friend for this challenge. </p>
 
-<p>I give you 5 random cards from my completely normal, randomly shuffled, full deck of 52 cards. You choose 4 of these cards and give them to your friend. After looking at those 4 cards, your friend tells me the identity of the 5th card (which she never saw). How did she do that?</p>
+<p>I give you 5 random cards from my completely normal, randomly shuffled, full deck of 52 cards. You choose 4 of these cards and give them to your friend. A
 
 * The first 2-person team to successfully perform this trick wins prize 2a.
 
-* Now write a program so that your computer can perform the trick with you. (Input is 4 cards; output is the identity of the unknown 5th card.) The first 2-person team to successfully demonstrate the trick using their computer wins prize 2b.
+* Now write a program so that your computer can perform the trick with you. (Input is 4 cards; output is the identity of the unknown 5th card.) The first 2-p
 
-* If n-1 is the miminum number of cards needed to uniquely encode one card from n randomly selected cards in a single deck, what is n for m multiple decks? Which is to say, how does n increase with m? Can you ever encode the unknown card with fewer than (n-1)*m cards? The first person to present a proof of the lower limit of (n|m) and demonstrate a program that does the trick for arbitrary m decks wins prize 2c.
+* If n-1 is the miminum number of cards needed to uniquely encode one card from n randomly selected cards in a single deck, what is n for m multiple decks? W
 -->
 
 <h2>2. STAR-CROSSED</h2>
@@ -81,22 +80,24 @@ fit within the first 500 words of the book.)</p>
 this, telephone keypads included letters. Here is a typical encoding:</p>
 
 <pre>
-	 1	 2	 3
-		abc	def
-	
-	 4	 5	 6
-	ghi	jkl	mno
+        1       2       3
+               abc     def
 
-	 7	 8	 9
-	pqrs	tuv	wxyz
+        4       5       6
+       ghi     jkl     mno
 
-	 *	 0	 #
-		 +
+        7       8       9
+       pqrs    tuv     wxyz
+
+        *       0       #
+                +
 </pre>
 
-<p>Write a program that generates Boston vanity telephone numbers (1-617-XXX-XXXX), where XXX-XXXX encodes a person's name. </p>
+<p>1. Write a program that generates Boston vanity telephone numbers
+(1-617-XXX-XXXX), where XXX-XXXX encodes a person's name.</p>
 
-<p>For example, the vanity number for 'Adriana' would be 1-617-237-4262, which is 1-617-ADRIANA. </p>
+<p>For example, the vanity number for 'Adriana' would be 1-617-237-4262, which
+is 1-617-ADRIANA.</p>
 
 <p>But what to do with names longer or shorter than 7 letters? If a name is
 shorter, then the vanity number will begin with a padding of 7's. For example,
@@ -108,30 +109,22 @@ names, you just take the first 4 letters and the last 3. For example,
 'Mahershalalhashbaz' (yes that's a real name) would be 1-617-624-3229 (for
 1-617-MAHEBAZ).</p>
 
-<p>Now notice that the zero encodes an addition symbol ('+'). Most people use
-it for calling foreign telephones, but hey... why not use it for mathematical
-vanity numbers? For example, the sum of the number values of a name can be
-converted into an arithmetic expression:</p>
+<p>2. Now write a program that does the reverse, taking a vanity telephone
+number and revealing the name. Impossible, you say? Not quite.</p>
+
+<p>You could at least encode the first 3 letters of a name. A simple system for
+achieving this would convert the old keypad number-letter mapping into a list
+of tuples like this:</p>
 
 <pre>
-ADRIANA = {2,3,7,4,2,6,2}
-sum({2,3,7,4,2,6,2}) = 22
+ADR = [(2,0), (3,0), (7,2)]
 </pre>
 
-<p>Of course, 22 is the solution to many arithmetic expressions that can be
-encoded as 7-digit telephone numbers:</p>
+<p>The first numbers of each tuple is the keypad number, and the second is the
+index of the correct letter under the keypad number.</p>
 
-<p>507-0406 (5+7+4+6), 802-0802 (8+2+8+2), 605-0406 (6+5+4+6), etc. </p>
+<p>But that system only uses 6 of your 7 telephone digits (wasting entropy),
+and can't we do better than a 3-letter name encoding? (Hint: yes we can.)</p>
 
-<p>To uniquely encode a name, mathematical vanity telephone numbers use the
-prettiest possible sequence: ascending order with the smallest numbers
-possible:</p>
-
-<pre>
-ADRIANA = 1-617-101-0505 (1+1+5+5)
-</pre>
-
-<p>For names shorter than 7 letters, you prepend a padding of zero's of course.
-And for names longer than 7, you drop letters in descending order of their
-keypad encoding value, with descending alphabetic rank and index position to
-break ties.</p>
+</body>
+</html>

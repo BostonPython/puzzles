@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Puzzle 2b: Phone Numbers</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<h1>Puzzle 2b: Phone Numbers</h1>
+
+<p>Long, long ago, people used to memorize phone numbers. To help people do
+this, telephone keypads included letters. Here is a typical encoding:</p>
+
+<pre>
+        1       2       3
+               abc     def
+
+        4       5       6
+       ghi     jkl     mno
+
+        7       8       9
+       pqrs    tuv     wxyz
+
+        *       0       #
+                +
+</pre>
+
+<p>1. Write a program that generates Boston vanity telephone numbers
+(1-617-XXX-XXXX), where XXX-XXXX encodes a person's name.</p>
+
+<p>For example, the vanity number for 'Adriana' would be 1-617-237-4262, which
+is 1-617-ADRIANA.</p>
+
+<p>But what to do with names longer or shorter than 7 letters? If a name is
+shorter, then the vanity number will begin with a padding of 7's. For example,
+the vanity number for 'Adam' would be 1-617-777-2326, which is 1-617-777-ADAM.
+If a name is longer than 7 letters, then the vanity number will drop all
+interior vowels starting from the end. For example, the vanity number for
+'Elizabeth' would be 1-617-354-9284 (for 1-617-ELIZBTH). And for crazy long
+names, you just take the first 4 letters and the last 3. For example,
+'Mahershalalhashbaz' (yes that's a real name) would be 1-617-624-3229 (for
+1-617-MAHEBAZ).</p>
+
+<p>2. Now write a program that does the reverse, taking a vanity telephone
+number and revealing the name. Impossible, you say? Not quite.</p>
+
+<p>You could at least encode the first 3 letters of a name. A simple system for
+achieving this would convert the old keypad number-letter mapping into a list
+of tuples like this:</p>
+
+<pre>
+ADR = [(2,0), (3,0), (7,2)]
+</pre>
+
+<p>The first numbers of each tuple is the keypad number, and the second is the
+index of the correct letter under the keypad number.</p>
+
+<p>But that system only uses 6 of your 7 telephone digits (wasting entropy),
+and can't we do better than a 3-letter name encoding? (Hint: yes we can,
+<a href="puzzle2_cipher.html">here's one way</a>.)</p>

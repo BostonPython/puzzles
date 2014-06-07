@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Puzzle 2: Phone Number Cipher Solution</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<h1>Puzzle 2: Phone Number Cipher Solution</h1>
+
+<p>(This is part of an answer to
+<a href="puzzle2.html">Puzzle 2: Star-Crossed Phone Numbers</a>.)</p>
+
+<p>You can encode a 4-letter name if you rearrange the keypad like this:</p>
+
+<pre>
+	 1	 2	 3
+	abc	def	ghi
+	
+	 4	 5	 6
+	jkl	mno	pqr
+
+	 7	 8	 9
+	stu	vwx	yz
+
+	 *	 0	 #
+</pre>
+
+<p>That allows you to encode 4 letters:</p>
+
+ADRI = [(1,2,1), (8,3,6)]
+
+<p>where the first number of each tuple is the rank of the combined indices of
+the other numbers:</p>
+
+<pre>
+1: 00
+2: 01
+3: 02
+3: 10
+4: 11
+5: 12
+6: 20
+7: 21
+8: 22
+</pre>
+
+<p>And this leaves you a few bits to play with, since you're only using 6 of
+the 7 digits of the telephone number. So why not use the last digit to encode
+an emoticon? You can have several vanity numbers, each ending with one of the
+10 standard human emotions:</p>
+
+<pre>
+0:  :)  happy
+1:  :}  extra happy
+2:  ;)  sarcastically happy
+3:  :]  squarely happy
+4:  :>  avian
+5:  :|  anhedonic
+6:  :\  mildly displeased
+7:  :P  disgusted and/or gloating
+8:  :@  internet unhappy
+9:  :(  unhappy
+</pre>
+
+<p>For example:</p>
+
+<p>If she's feeling happy, Adriana gives you her happy number: </p>
+
+<pre>
+617-121-8360 = [(1,2,1), (8,3,6), 0] = ADRI:)
+</pre>
+
+<p>If she's feeling mildly displeased with you, then you get 617-121-8366.</p>
+
+<p>But here's the real challenge. Is it possible to do better? It certainly
+seems impossible to uniquely encode a full 7-letter name like ADRIANA. There
+just aren't enough numbers on the keypad. But can you uniquely encode a
+5-letter name like ADRIA?</p>

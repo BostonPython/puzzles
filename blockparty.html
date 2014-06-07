@@ -3,6 +3,23 @@
 <head>
 <title>Puzzle: Block Party</title>
 <link rel="stylesheet" type="text/css" href="style.css">
+<style>
+table {
+    margin-left: 3em;
+}
+td {
+    text-align: center;
+    padding: 0 .6em;
+}
+.times {
+    font-size: 85%;
+    padding: 0 .1em;
+    line-height: 0;
+    vertical-align: baseline;
+    position: relative;
+    top: -.1em;
+}
+</style>
 <body>
 <h1>Block Party</h1>
 
@@ -14,23 +31,26 @@ puzzles.</p>
 It was invented by the son of Thomas Edison. Or at least, he got the credit for
 it. (Like father, like son.)</p>
 
-<p>It seems simple. You've got 12 rectangular tiles with these dimensions: </p>
+<p>It seems simple: you've got 12 rectangular tiles with these dimensions: </p>
 
-<blockquote>
-32&times;11 &nbsp;&nbsp;
-32&times;10 &nbsp;&nbsp;
-28&times;14 &nbsp;&nbsp;
-28&times;7 &nbsp;&nbsp;
-28&times;6 &nbsp;&nbsp;
-21&times;18 &nbsp;&nbsp;
-<br/>
-21&times;18 &nbsp;&nbsp;
-21&times;14 &nbsp;&nbsp;
-21&times;14 &nbsp;&nbsp;
-17&times;14 &nbsp;&nbsp;
-14&times;4 &nbsp;&nbsp;
-10&times;7 &nbsp;&nbsp;
-</blockquote>
+<table>
+<tr>
+    <td>32<span class="times">&times;</span>11</td>
+    <td>32<span class="times">&times;</span>10</td>
+    <td>28<span class="times">&times;</span>14</td>
+    <td>28<span class="times">&times;</span>7</td>
+    <td>28<span class="times">&times;</span>6</td>
+    <td>21<span class="times">&times;</span>18</td>
+</tr>
+<tr>
+    <td>21<span class="times">&times;</span>18</td>
+    <td>21<span class="times">&times;</span>14</td>
+    <td>21<span class="times">&times;</span>14</td>
+    <td>17<span class="times">&times;</span>14</td>
+    <td>14<span class="times">&times;</span>4</td>
+    <td>10<span class="times">&times;</span>7</td>
+</tr>
+</table>
 
 <p>or, as a Python-ready list:</p>
 

@@ -17,19 +17,39 @@ it. (Like father, like son.)</p>
 <p>It seems simple. You've got 12 rectangular tiles with these dimensions: </p>
 
 <blockquote>
-32&times;11
-32&times;10
-28&times;14
-28&times;7
-28&times;6
-21&times;18
-21&times;18
-21&times;14
-21&times;14
-17&times;14
-14&times;4
-10&times;7
+32&times;11 &nbsp;&nbsp;
+32&times;10 &nbsp;&nbsp;
+28&times;14 &nbsp;&nbsp;
+28&times;7 &nbsp;&nbsp;
+28&times;6 &nbsp;&nbsp;
+21&times;18 &nbsp;&nbsp;
+<br/>
+21&times;18 &nbsp;&nbsp;
+21&times;14 &nbsp;&nbsp;
+21&times;14 &nbsp;&nbsp;
+17&times;14 &nbsp;&nbsp;
+14&times;4 &nbsp;&nbsp;
+10&times;7 &nbsp;&nbsp;
 </blockquote>
+
+<p>or, as a Python-ready list:</p>
+
+<pre>
+tiles = [
+    (32, 11),
+    (32, 10),
+    (28, 14),
+    (28, 7),
+    (28, 6),
+    (21, 18),
+    (21, 18),
+    (21, 14),
+    (21, 14),
+    (17, 14),
+    (14, 4),
+    (10, 7),
+]
+</pre>
 
 <p>(Yes, there are duplicates in the list, you have pairs of blocks of the same
 size.) All you have to do (ha!) is arrange them so they form a single rectangle

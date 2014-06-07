@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Puzzle 5: Block Party</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<h1>Puzzle 5: Block Party</h1>
+
+<p>Another little known use of Python programming is solving real-world block
+puzzles.</p>
+
+<p>Take for example the notoriously difficult 
+<a href="http://www.pavelspuzzles.com/2010/08/the_calibron_12block_puzzle.html">12-Block Calibron puzzle</a>. 
+It was invented by the son of Thomas Edison. Or at least, he got the credit for
+it. (Like father, like son.)</p>
+
+<p>It seems simple. You've got 12 rectangular tiles with these dimensions: </p>
+
+<blockquote>
+32&times;11
+32&times;10
+28&times;14
+28&times;7
+28&times;6
+21&times;18
+21&times;18
+21&times;14
+21&times;14
+17&times;14
+14&times;4
+10&times;7
+</blockquote>
+
+<p>(Yes, there are duplicates in the list, you have pairs of blocks of the same
+size.) All you have to do (ha!) is arrange them so they form a single rectangle
+with no gaps.</p>
+
+<p>The problem is that the search space is very big. So this cries out for a
+computational approach.</p>
+
+<p>1. What is the total surface area of the final solution?</p>
+
+<p>2. OK that was easy. But how about the height and width of all possible (or
+let's call them, potential) rectangle solutions? Write a program that generates
+that list.</p>
+
+<p>3. Finally, the really hard part. Write a program that searches for a
+solution to the 12-Block Calibron puzzle. (Apparently there is only one.)</p>
+
+<p>4. Bonus: How unique is the 12-Block Calibron within puzzle space? What
+makes an n-Block Calibron a good puzzle, i.e. that has one and only one
+solution? Write a program that generates n-Block Calibron puzzles. </p>

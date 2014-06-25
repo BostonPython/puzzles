@@ -4,3 +4,17 @@ body {
     line-height: 1.2;
     margin: 0 auto;
 }
+
+.subtle {
+    color: #888;
+}
+
+.subtle a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.subtle a:hover {
+    text-decoration: underline;
+    color: red;
+}

@@ -5,6 +5,10 @@ body {
     margin: 0 auto;
 }
 
+pre {
+    margin-left: 2em;
+}
+
 .subtle {
     color: #888;
 }
@@ -17,4 +21,8 @@ body {
 .subtle a:hover {
     text-decoration: underline;
     color: red;
+}
+
+p.display {
+    text-align: center;
 }

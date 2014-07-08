@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Puzzle: Letter Lock Picking</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+
+<p class="subtle"><a href="/">&#xab; Boston Python puzzles</a></p>
+
+<h1>Letter Lock Picking</h1>
+
+<p>[inpsired by <a href="http://www.datagenetics.com/blog/march32012/">http://www.datagenetics.com/blog/march32012/</a>]</p>
+
+<p>Consider a combination lock that uses letters rather than numbers. For
+example, the <a href="http://www.amazon.com/Master-Lock-1535DWD-Vertical-Resettable/dp/B009JTW84Y">Masterlock 1535DWD Vertical combination lock</a>:</p>
+
+<p class="display"><img src="lock.jpg" alt="Masterlock word combination lock"/></p>
+
+<p>It has 4 rings with 10 letters each:</p>
+
+<pre>
+RINGS = ['BDMJPRSTLN', 'AEIOUYRTLH', 'ACDEORSTLN', 'DHKYRSTLNE']
+</pre>
+
+<p>In principle, just like the space of 4-digit base-10 numbers, there are
+10,000 possible combinations. But in practice, there are far fewer.</p>
+
+<p>1.  How many English words can be made with this lock?</p>
+
+<p>The answer will depend on what dictionary you use. On a Mac, this will get
+you English words as a Python list of uppercase strings:</p>
+
+<pre>
+words = open('/usr/share/dict/words','r').read().upper().split('\n')
+</pre>
+
+<p>Now let's say that you're trying to crack this lock, and here is what you
+know about the correct combination:</p>
+
+<ul>
+    <li>The correct combination is a valid English dictionary word.</li>
+
+    <li>The word is also a member of the small set of triple words for this
+    lock, meaning that all 3 words appear on one configuration of the
+    rings.</li>
+
+    <li>These triple words are a time, a chemical, and a food. (And the correct
+    combination word is the food.)</li>
+</ul>
+
+<p>2.  What is the correct combination for this lock?</p>
+
+<p>Bonus question:</p>
+
+<p>3.  How many twin words and triplet words are there? What about higher
+levels of word multiples?</p>
+
+<p>Open questions:</p>
+
+<p>4.  Change the letters of this lock (again with 4 rings with a set of 10
+unique letters on each) to find the lock with the most multiple words of the
+highest order. How high can we go with English? Quadruplet words? Quintuplets?
+Sextuplets? Septuplets... octuplets??</p>
+
+<p>5.  And finally, how about siamese twin words, i.e. words that are adjacent
+to each other on the rings? What is the highest order of 4-letter siamese twin
+words that can be generated in English with 10-letter rings? What if it were a
+lock with full 26-letter alphabetic rings? (This last question is really more
+of a question about the English language than about combination locks.)</p>

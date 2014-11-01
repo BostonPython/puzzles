@@ -57,6 +57,7 @@ deduped = {l[0]:l for l in triples_plus}.values()
 # the deduped list has all of the settings with n-tuples, n>=3. By inspection, we find 
 # ['BEET', 'DIOL', 'MORN'] which meets the criteria. 
 
+
 # Question 3 is trivially answered by counting the entries in the de-duped list of 3+-tuples.
 # I get 81 settings producing tuples of n >=3, or 250 individual words appearing in such tuples.
 # 317 settings producing twins, implying 634 individual words which have twin settings
@@ -95,8 +96,8 @@ stupid_result = stupid_maximal_rings(w4)
 # So we can get a 13-tuple with absolutely no effort at all. A bit
 # more cleverness will probably produce some improvement.
 
-# Problem 5 seems to be solved by this approach as well, since the
-# method of solution generated "siamese twin" tuples
-
+# The first part of problem 5 seems to be solved by this approach as well, since the
+# method of solution generated "siamese twin" tuple. s
+# 
 
 

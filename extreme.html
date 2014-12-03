@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Extreme Verbal Arithmetic</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+
+<p class="subtle"><a href="/">&#xab; Boston Python puzzles</a></p>
+
+<h1>Extreme Verbal Arithmetic</h1>
+
+<p>Every puzzle-lover has toyed with <a href="http://en.wikipedia.org/wiki/Verbal_arithmetic">verbal arithmetic</a>:</p>
+
+<pre>SEND + MORE = MONEY</pre>
+
+<p>This verbal equation is arithmetically satisfied by these substitutions:</p>
+
+<pre>
+{'O':0, 'M':1, 'Y':2, 'E':5, 'N':6, 'D':7, 'R':8, 'S':9}
+</pre>
+
+<p>which results in this numeric equation:</p>
+
+<pre>
+9567 + 1085 = 10652
+</pre>
+
+<p>But that's too easy. So let's play extreme verbal arithmetic.</p>
+
+<p>Rather than just representing digits, the letters can also represent the arithmetic operators +, -, *, and /.</p>
+
+<p>The goal is to find the extreme solution, the one that equates to the
+largest value. For example:</p>
+
+<pre>HI = FLY</pre>
+
+<p>There are many solutions:</p>
+
+<pre>
+13 = 9+4
+15 = 8+7
+16 = 8*2
+21 = 7*3
+</pre>
+
+<p>But what is the extreme solution?</p>
+
+<p>The largest possible value for HI is 98. But there is no FLY expression that
+evaluates to 98. (Prove it to yourself.) So how about 97? 96? 95? Nope, FLY
+has too few letters for their factors. Oh! How about 81 = 9*9? Sorry, FLY
+can't be 9*9 since F and Y are not allowed to be both be 9. Nothing works
+until you get to the extreme solution of 72:</p>
+
+<pre>
+72 = 9*8
+</pre>
+
+<p>NOTE that the characters ** are the exponential operator. For example:</p>
+
+<pre>
+MOON = MEAT
+3**4 = 3+78 = 81
+</pre>
+
+<p>Note also that in Python, numbers starting with a zero digit are base-8: 0123 == 83,
+and that both / and // are division operators.</p>
+
+<p>You may find the solutions to <a href="http://puzzles.bostonpython.com/hotdate.html">this puzzle</a> helpful.</p>
+
+<p>Find the extreme solution for the following equations. </p>
+
+<p>1.  TON = NOT</p>
+
+<p>2.  SNAP = PEA</p>
+
+<p>3.  EMAIL = SPAM</p>
+
+<p>4.  MASSACHUSETTS = MA</p>
+
+<p>5.  NOON = TUTORIAL</p>
+
+<p>6.  WOMAN = MAN = NOW</p>
+
+<p>7.  ABBABBA = A</p>
+
+<p>8.  PYTHONIC = HYPNOTIC</p>
+
+<p>9.  CAMBRIDGE = CODERS</p>
+
+<p>BONUS:  What verbal arithmetic equation has the most extreme solution of
+all? (English dictionary words only.)</p>
+
+<p>And if you've gone this deep down the rabbit hole, you may be interested to
+learn more about <a href="https://jakevdp.github.io/blog/2014/05/09/why-python-is-slow/">the speed
+of calculations in Python</a> and about <a href="http://www.scottaaronson.com/writings/bignumbers.html">truly big
+numbers</a>.
+
+<h2>Solutions</h2>
+
+<p>If you have a solution you'd like to share see the <a href="solutions.html">Solutions page</a> for instructions.</p>

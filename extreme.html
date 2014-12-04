@@ -48,7 +48,7 @@ largest value. For example:</p>
 <p>The largest possible value for HI is 98. But there is no FLY expression that
 evaluates to 98. (Prove it to yourself.) So how about 97? 96? 95? Nope, FLY
 has too few letters for their factors. Oh! How about 81 = 9*9? Sorry, FLY
-can't be 9*9 since F and Y are not allowed to be both be 9. Nothing works
+can't be 9*9 since F and Y are not allowed to both be 9. Nothing works
 until you get to the extreme solution of 72:</p>
 
 <pre>
@@ -62,8 +62,10 @@ MOON = MEAT
 3**4 = 3+78 = 81
 </pre>
 
-<p>Note also that in Python, numbers starting with a zero digit are base-8: 0123 == 83,
-and that both / and // are division operators.</p>
+<p>Note also that in Python 2, numbers starting with a zero digit are base-8: 0123 == 83.
+In Python 3, numbers starting with zero are syntax errors!
+(<a href="http://stackoverflow.com/questions/11620151/what-do-numbers-starting-with-0-mean-in-python">what do numbers starting with 0 mean in Python?</a>)
+And don't forget that both / and // are division operators.</p>
 
 <p>You may find the solutions to <a href="http://puzzles.bostonpython.com/hotdate.html">this puzzle</a> helpful.</p>
 
@@ -86,6 +88,8 @@ and that both / and // are division operators.</p>
 <p>8.  PYTHONIC = HYPNOTIC</p>
 
 <p>9.  CAMBRIDGE = CODERS</p>
+
+<p>10. BANISTER = PAINTER = ANGER</p>
 
 <p>BONUS:  What verbal arithmetic equation has the most extreme solution of
 all? (English dictionary words only.)</p>

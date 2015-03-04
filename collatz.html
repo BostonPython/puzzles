@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Puzzle: The Collatz Dash</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+table {
+    margin-left: 3em;
+}
+td {
+    text-align: center;
+    padding: 0 .6em;
+}
+</style>
+<body>
+
+<p class="subtle"><a href="/">&#xab; Boston Python puzzles</a></p>
+
+<h1>The Collatz Dash</h1>
+
+<p>The crowds have been gathering here  for hours in the tiny town of Collatz,
+Pennsylvania. The loud speaker fires up and the mayor finally kicks off the
+event. "Welcome to the 78th annual Collatz Dash!"</p>
+
+<p>Every March 4th, the people of Collatz run a foot race down Conway Street,
+the main drag in the center of town. This year, there are 100 people racing,
+one of each age from 3 to 103. (Grandpa Thwaites turned 103 this winter and can
+still hobble along with a cane.) Everyone who isn't in the race bets on the
+race. (It's the one and only legal gambling event, so everyone goes nuts.)</p>
+
+<p>The finish line in front of the Town Hall is marked in chalk with a big
+numeral "1". The numbers increase all along the race course heading north out
+of town, showing the distance to the finish line in yards.</p>
+
+<p>"Everybody take your mark!" bellows the mayor.</p>
+
+<p>There is no fixed start line. Instead, each runner walks away from the
+finish line to a distance equal to their age. So the 18 year-old walks out to
+the 18-yard line, the 36 year-old goes to the 36-yard line, and so on until
+grandpa Thwaites finally hobbles out to the 103-yard line.</p>
+
+<p>The gun fires and the race is on!</p>
+
+<p>Of course, people in Collatz don't run straight to the finish line. They
+used to do it that way, but the winner was always a gloating 3 year-old.
+Instead, everyone now follows this algorithm in simultaneous turns:</p>
+
+<ol>
+<li>Look at your current yard line (n).</li>
+<li>If n is even, immediately advance to the (n / 2) yard line.</li>
+<li>If n is odd, go back (n * 3) + 1 yards.</li>
+</ol>
+
+<p>The people of Collatz love betting on this race because it's so
+unpredictable!</p>
+
+<p>For example, take a look at last year's nail-biter between Alexa (age 7) and
+Bob (age 17):</p>
+
+<table>
+<tr><td>Alexa	</td><td>Bob</td></tr>
+<tr><td>7	</td><td>17</td></tr>
+<tr><td>22	</td><td>52</td></tr>
+<tr><td>11	</td><td>26</td></tr>
+<tr><td>34	</td><td>13</td></tr>
+<tr><td>17	</td><td>40</td></tr>
+<tr><td>52	</td><td>20</td></tr>
+<tr><td>26	</td><td>10</td></tr>
+<tr><td>13	</td><td>5</td></tr>
+<tr><td>40	</td><td>16</td></tr>
+<tr><td>20	</td><td>8</td></tr>
+<tr><td>10	</td><td>4</td></tr>
+<tr><td>5	</td><td>2</td></tr>
+<tr><td>16	</td><td>1</td></tr>
+</table>
+
+<p>Bob wins!</p>
+
+<p>...while Carrie (age 8) mopped the floor with Darrin (age 18):</p>
+
+<table>
+<tr><td>Carrie	</td><td>Darrin</td></tr>
+<tr><td>8	</td><td>18</td></tr>
+<tr><td>4	</td><td>9</td></tr>
+<tr><td>2	</td><td>28</td></tr>
+<tr><td>1	</td><td>14</td></tr>
+</table>
+
+<p>Carrie wins!</p>
+
+<p>...and every once in a while, you get a surprising tie!</p>
+
+<table>
+<tr><td>Ed	</td><td>Fred</td></tr>
+<tr><td>22	</td><td>23</td></tr>
+<tr><td>11	</td><td>70</td></tr>
+<tr><td>34	</td><td>35</td></tr>
+<tr><td>17	</td><td>106</td></tr>
+<tr><td>52	</td><td>53</td></tr>
+<tr><td>26	</td><td>160</td></tr>
+<tr><td>13	</td><td>80</td></tr>
+<tr><td>40	</td><td>40</td></tr>
+<tr><td>20	</td><td>20</td></tr>
+<tr><td>10	</td><td>10</td></tr>
+<tr><td>5	</td><td>5</td></tr>
+<tr><td>16	</td><td>16</td></tr>
+<tr><td>8	</td><td>8</td></tr>
+<tr><td>4	</td><td>4</td></tr>
+<tr><td>2	</td><td>2</td></tr>
+<tr><td>1	</td><td>1</td></tr>
+</table>
+
+<p>It's a tie!</p>
+
+<p>You're only allowed to place bets on pairs of racers. The bigger the age gap
+between racers, the bigger the odds of the bet. I made a lot of money last year
+placing a bet that Bob would beat Alexa. The odds were 17:7, so I reaped
+$242.86 from my $100 bet!</p>
+
+<p>But something tells me this race isn't as unpredictable as it seems...</p>
+
+<ol>
+
+<li>What is the most profitable bet to make this year?</li>
+
+<li>Which pair of racers will tie with the largest age gap between them?</li>
+
+<li>Who will finish last? (It's not grandpa Thwaites!)</li>
+
+<li>Bonus:  Visualize the race in some cool way.</li>
+
+<li>Superduper bonus:  Will every racer finish the race, no matter what their
+age? (This is an open question in mathematics.)</li>
+
+</ol>
+
+<h2>Solutions</h2>
+
+<p>If you have a solution you'd like to share see the <a href="solutions.html">Solutions page</a> for instructions.</p>

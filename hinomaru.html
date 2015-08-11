@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Puzzle: Hinomaru</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+
+<p class="subtle"><a href="/">&#xab; Boston Python puzzles</a></p>
+
+<h1>Hinomaru</h1>
+
+<p><i>by John Bohannon</i></p>
+
+<p>The word maru means "round" in Japanese. It is the name of a popular <a href="https://www.youtube.com/watch?v=kDolQlZWSmw">internet cat</a>.</p>
+<p>The word is also part of hinomaru (sun round), the name of the Japanese flag.</p>
+
+<p><img src="hinomaru/flag.jpg"></p>
+
+<p>But here, we refer to Hinomaru, the beautiful and challenging <a href="http://www.pavelspuzzles.com/2007/08/hinomaru_the_japanese_flag_puz_1.html">assembly puzzle</a> created by Curtis Pavel.
+
+<p><img src="hinomaru/not_quite_solution.jpg"></p>
+
+<p>These are the tiles:</p>
+
+<p><img src="hinomaru/tiles_front.jpg"></p>
+
+<p>And these are the flip side of those tiles:</p>
+
+<p><img src="hinomaru/tiles_back.jpg"></p>
+
+<p>The goal is to assemble the tiles into the Japanese flag.</p>
+
+<p>Such a difficult puzzle...  Python to the rescue!</p>
+
+<p>Let's convert this into a bitmap:</p>
+
+<p><img src="hinomaru/solution_bitmap.jpg"</p>
+
+<p>Now, write a program that solves the Hinomaru puzzle.</p>
+
+<p>Ever want to try out the numpy Python library? This puzzle makes for a very nice intro tutorial. Not only does numpy make this easier to code, it also runs much faster. (Hint: Depth-First Search, and beware of recursion.)</p>
+
+<p>Here is the target solution as a Python-friendly list of tuples:</p>
+
+<pre>
+SOLUTION = [
+    (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
+    (0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0),
+    (0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0),
+    (0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0),
+    (0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0),
+    (0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0),
+    (0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0),
+    (0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0),
+    (0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0),
+    (0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0),
+    (0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0),
+    (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
+]
+</pre>
+
+<p>And here are the 12 tiles, each as a 2-tuple of front and back:</p>
+
+<pre>
+TILES = [
+    (
+        ((1,1,1,1,1,1), (1,1,1,1,1,1), (1,1,1,1,1,1)),
+        ((0,1,1,1,1,1), (0,1,1,1,1,1), (0,0,1,1,1,1)),
+    ),
+    (
+        ((1,1,1,1,1,1), (1,1,1,1,1,1), (1,1,1,1,1,1)),
+        ((1,1,0,0,0,0), (1,1,0,0,0,0), (1,0,0,0,0,0)),
+    ),
+    (
+        ((1,1,1,1,1,1), (1,1,1,1,1,1), (1,1,1,1,1,1)),
+        ((0,0,0,0,0,0), (1,1,0,0,0,0), (1,1,1,1,0,0)),
+    ),
+    (
+        ((1,1,1,1,1,1), (0,1,1,1,1,0), (0,0,0,0,0,0)),
+        ((1,1,1,1,0,0), (1,1,0,0,0,0), (0,0,0,0,0,0)),
+    ),
+    (
+        ((1,1,1,1,1,1), (0,1,1,1,1,0), (0,0,0,0,0,0)),
+        ((0,0,0,0,0,0), (0,0,0,0,0,0), (0,0,0,0,0,0)),
+    ),
+    (
+        ((1,1,1,1,1,0), (1,1,1,1,1,0), (1,1,1,1,0,0)),
+        ((0,0,0,0,0,0), (0,0,0,0,0,0), (1,0,0,0,0,0)),
+    ),
+    (
+        ((1,1,1,1,0,0), (1,1,1,1,1,0), (1,1,1,1,1,0)),
+        ((0,0,1,1,1,1), (0,0,0,0,1,1), (0,0,0,0,0,0)),
+    ),
+    (
+        ((0,0,0,0,0,0), (0,0,0,0,1,1), (0,0,1,1,1,1)),
+        ((0,0,0,0,0,0), (0,0,0,0,0,0), (0,0,0,0,0,0)),
+    ),
+    (
+        ((0,0,1,1,1,1), (0,0,0,0,1,1), (0,0,0,0,0,0)),
+        ((0,0,0,0,0,0), (0,0,0,0,0,0), (0,0,0,0,0,1)),
+    ),
+    (
+        ((0,0,0,0,1,1), (0,0,0,0,1,1), (0,0,0,0,0,1)),
+        ((0,0,0,0,0,0), (0,0,0,0,0,0), (0,0,0,0,0,0)),
+    ),
+    (
+        ((0,0,0,0,0,1), (0,0,0,0,1,1), (0,0,0,0,1,1)),
+        ((0,0,0,0,0,0), (0,0,0,0,0,0), (0,0,0,0,0,1)),
+    ),
+    (
+        ((0,0,0,0,0,1), (0,0,0,0,0,0), (0,0,0,0,0,0)),
+        ((0,0,0,0,0,0), (0,0,0,0,0,0), (0,0,0,0,0,0)),
+    ),
+]
+</pre>
+
+<h2>Solutions</h2>
+
+<ul>
+<li>John Bohannon&rsquo;s solution is <a href="https://github.com/BostonPython/puzzles/blob/gh-pages/solutions/bohannon/hinomaru.py">hinomaru.py</a></li>
+</ul>
+
+<p>If you have a solution you'd like to share see the
+<a href="solutions.html">Solutions page</a> for instructions.</p>
